@@ -17,3 +17,18 @@ Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 
 */
+
+var maxProfit = function(prices) {
+    let minPrice = Infinity;
+    let maxProfit = 0;
+  
+    for (let i = 0; i < prices.length; i++) {
+      if (prices[i] < minPrice) {
+        minPrice = prices[i];
+      } else {
+        maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+      }
+    }
+  
+    return maxProfit;
+  };
