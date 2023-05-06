@@ -63,13 +63,24 @@ console.log(beasts.indexOf('giraffe'));
 
 */
 
-var intersect = function(nums1, nums2) {
+var intersect = function (nums1, nums2) {
     let arr = [];
-    for (var i = 0; i < nums2.length; i++){
-        if (nums1.includes(nums2[i])){
+    for (var i = 0; i < nums2.length; i++) {
+        if (nums1.includes(nums2[i])) {
             arr.push(nums2[i]);
             nums1.splice(nums1.indexOf(nums2[i]), 1);
+            /*
+            If nums2[i] is found in nums1, nums1.splice(nums1.indexOf(nums2[i]), 1) 
+            removes one element at the index where nums2[i] is found, effectively removing 
+            the first occurrence of nums2[i] from nums1. 
+            The splice method modifies the nums1 array in place and returns an array 
+            containing the removed element(s). 
+            The second argument to splice specifies the number of elements to remove 
+            (in this case, it is 1).
+             */
         }
     }
     return arr;
 };
+
+
