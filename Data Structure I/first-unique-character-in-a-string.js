@@ -16,17 +16,17 @@ Output: -1
 */
 
 var firstUniqChar = function (s) {   // Declare a function that takes in a string argument 's' and assigns it to the variable 'firstUniqChar'
-    const charCount = {};   // Declare an empty object called 'charCount' to store the count of each character in the string
+    const charCount = {};   // Declare an empty object to store the count of each character in the string
     
     // Count the occurrence of each character in the string
     for (let i = 0; i < s.length; i++) {   // Loop through each character in the string using a for loop
-        const char = s[i];   // Assign the current character to the variable 'char'
+        const char = s[i];   // Assign the current character to the variable 
         charCount[char] = (charCount[char] || 0) + 1;   // Increment the count of the current character in the 'charCount' object
     }
     
     // Find the first non-repeating character
     for (let i = 0; i < s.length; i++) {   // Loop through each character in the string again using a for loop
-        const char = s[i];   // Assign the current character to the variable 'char'
+        const char = s[i];   // Assign the current character to the variable 
         if (charCount[char] === 1) {   // If the count of the current character in the 'charCount' object is equal to 1
             return i;   // Return the index of the current character
         }
