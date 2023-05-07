@@ -2,30 +2,42 @@
 387. First Unique Character in a String
 Given a string s, find the first non-repeating character in it 
 and return its index. If it does not exist, return -1.
+
+Examples:
+
+Input: s = "leetcode"
+Output: 0
+
+Input: s = "loveleetcode"
+Output: 2
+
+Input: s = "aabb"
+Output: -1
 */
 
-var firstUniqChar = function (s) {
-    const charCount = {};
+var firstUniqChar = function (s) {   // Declare a function that takes in a string argument 's' and assigns it to the variable 'firstUniqChar'
+    const charCount = {};   // Declare an empty object called 'charCount' to store the count of each character in the string
     
     // Count the occurrence of each character in the string
-    for (let i = 0; i < s.length; i++) {
-        const char = s[i];
-        charCount[char] = (charCount[char] || 0) + 1;
+    for (let i = 0; i < s.length; i++) {   // Loop through each character in the string using a for loop
+        const char = s[i];   // Assign the current character to the variable 'char'
+        charCount[char] = (charCount[char] || 0) + 1;   // Increment the count of the current character in the 'charCount' object
     }
     
     // Find the first non-repeating character
-    for (let i = 0; i < s.length; i++) {
-        const char = s[i];
-        if (charCount[char] === 1) {
-            return i;
+    for (let i = 0; i < s.length; i++) {   // Loop through each character in the string again using a for loop
+        const char = s[i];   // Assign the current character to the variable 'char'
+        if (charCount[char] === 1) {   // If the count of the current character in the 'charCount' object is equal to 1
+            return i;   // Return the index of the current character
         }
     }
     
     // No non-repeating character found
-    return -1;
+    return -1;   // Return -1 if no non-repeating character is found in the string
 }
 
-//Better solution
+
+//Other solution
 
 /*
 In JavaScript, new Array(n) creates a new array with n elements. 
