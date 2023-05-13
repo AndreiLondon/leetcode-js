@@ -133,6 +133,7 @@ function romanToInt(s) {
     const currentSymbol = s[i];  // get the current symbol
 
     const currentValue = romanToIntMap[currentSymbol];  // look up the integer value for the current symbol in the lookup table
+    console.log(currentValue)
 
     const nextSymbol = s[i + 1];  // get the next symbol (if it exists)
 
