@@ -47,3 +47,5 @@ function twoSum(nums, target) {
 //Hash Table
 
 //Sorting, Two Pointers
+
+function twoSum(nums, target) {}
