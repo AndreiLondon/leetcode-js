@@ -15,7 +15,7 @@ Explanation: There is no common prefix among the input strings.
 
 Related Topics
 String, Trie
-*/
+*/    
 
 var longestCommonPrefix = function (strs) {
     // If the input array is empty or undefined, return an empty string
