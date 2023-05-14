@@ -4,6 +4,22 @@ Given an array of integers nums and an integer target, return indices of the two
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 You can return the answer in any order.
 
+Example
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Example
+Input: nums = [3,3], target = 6
+Output: [0,1]
+
+Related Topics
+Array, Hash Table
+
 Array.prototype.map()
 The map() method creates a new array populated with the results 
 of calling a provided function on every element in the calling array.
@@ -25,7 +41,7 @@ function twoSum(nums, target) {
     map.set(nums[i], i);
   }
 }
-let arg1 = [2,7,11,15]
+let arg1 = [2, 7, 11, 15]
 let arg2 = 9
 
 console.log(twoSum(arg1, arg2))
@@ -34,9 +50,9 @@ console.log(twoSum(arg1, arg2))
 function twoSum(nums, target) {
   for (let i = 0; i < nums.length; i++) { // use let instead of var, and start loop from 0
     let firstNumber = nums[i]
-    for (let j = i + 1; j < nums.length; j++){ // start inner loop from i + 1
+    for (let j = i + 1; j < nums.length; j++) { // start inner loop from i + 1
       let secondNumber = nums[j]
-      if (firstNumber + secondNumber == target){
+      if (firstNumber + secondNumber == target) {
         return [i, j]
       }
     }
@@ -48,4 +64,25 @@ function twoSum(nums, target) {
 
 //Sorting, Two Pointers
 
-function twoSum(nums, target) {}
+function twoSum(nums, target) {
+  nums.sort();
+  let left = 0;
+  let right = nums.length - 1;
+
+  while (left < right) {
+    let sum = nums[left] + nums[right]
+    if (target === sum) {
+      return [left, right];
+    } else if (target > sum) {
+      left += 1;
+    } else {
+      right -= 1;
+    }
+  }return [-1, -1]
+
+};
+
+let arg13 = [2, 7, 11, 15]
+let arg23 = 9
+
+console.log(twoSum(arg13, arg23))
