@@ -64,3 +64,70 @@ O(n) represents linear time complexity, where the execution time grows linearly 
 var mergeTwoLists = function(list1, list2) {
     
 };
+/*
+//Linked list
+class ListNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+(function main() {
+    let one = new ListNode(1);
+    let two = new ListNode(2);
+    let three = new ListNode(3);
+    one.next = two;
+    two.next = three;
+    let head = one;
+    
+    console.log(head.val);
+    console.log(head.next.val);
+    console.log(head.next.next.val);
+}());
+
+
+// let ptr = head;
+// head = head.next;
+// head = null;
+
+// console.log(head)
+*/
+
+function ListNode(val) {
+    this.val = val;
+    this.next = null;
+  }
+  
+  function mergeTwoLists(list1, list2) {
+    let dummy = new ListNode(-1); // Create a dummy node as the head of the merged list
+    let current = dummy; // Set the current pointer to the dummy node
+  
+    // Iterate through both lists
+    while (list1 !== null && list2 !== null) {
+      if (list1.val <= list2.val) {
+        // If the value in list1 is less than or equal to the value in list2
+        // Append the node from list1 to the merged list
+        current.next = list1;
+        list1 = list1.next; // Move the list1 pointer to the next node
+      } else {
+        // If the value in list2 is less than the value in list1
+        // Append the node from list2 to the merged list
+        current.next = list2;
+        list2 = list2.next; // Move the list2 pointer to the next node
+      }
+      current = current.next; // Move the current pointer to the newly added node
+    }
+  
+    // Append any remaining nodes in list1 or list2 to the merged list
+    if (list1 !== null) {
+      current.next = list1;
+    }
+  
+    if (list2 !== null) {
+      current.next = list2;
+    }
+  
+    return dummy.next; // Return the head of the merged linked list
+  }
+  
