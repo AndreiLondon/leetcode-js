@@ -255,4 +255,3 @@ var mergeTwoLists = function (list1, list2) {
   return head
 
 };
-1
