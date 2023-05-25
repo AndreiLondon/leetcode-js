@@ -79,3 +79,41 @@ let addNode = (prevNode, nodeToAdd) => {
     nodeToAdd.next = prevNode.next;
     prevNode.next = nodeToAdd;
 }
+
+//Let's say you want to delete the element at position i
+class ListNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+// Let prevNode be the node at position i - 1
+let deleteNode = prevNode => {
+    prevNode.next = prevNode.next.next;
+}
+
+//Doubly linked list
+//A doubly linked list is like a singly linked list, 
+//but each node also contains a pointer to the previous node.
+class ListNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+let addNode = (node, nodeToAdd) => {
+    let prevNode = node.prev;
+    nodeToAdd.next = node;
+    nodeToAdd.prev = prevNode;
+    prevNode.next = nodeToAdd;
+    node.prev = nodeToAdd;
+}
+
+let deleteNode = node => {
+    let prevNode = node.prev;
+    let nextNode = node.next;
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
+}
