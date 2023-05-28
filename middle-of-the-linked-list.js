@@ -36,3 +36,5 @@ var middleNode = function (head) {
 
     return ans;
 };
+let arr = [1, 2, 3, 4, 5, 6]
+console.log(middleNode(arr));

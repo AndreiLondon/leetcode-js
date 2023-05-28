@@ -1,183 +1,77 @@
 //Linked Lists
 
+
 /*
 A linked list is a data structure that is similar to an array. 
 It also stores data in an ordered manner, but it is implemented using node objects 
 (you will have a custom class). Each node will have a "next" pointer, 
 which points to the node representing the next element in the sequence.
+
+   Head          Tail
+    |              |
+    v              v
++---+---+    +---+---+    +---+----+
+| 10 | *---->| 20 | *---->| 30 |null|
++---+---+    +---+---+    +---+----+
+
+In this representation, the Head pointer points to the first node (10) 
+in the linked list, and the Tail pointer points to the last node (30). 
+Each node consists of two parts: the data field, which holds the value, and the next pointer, 
+represented by an arrow, which points to the next node in the list.
+
+The * symbol represents the next pointer.
+
+Note that in the last node, 
+the next pointer is null, indicating the end of the list.
+
+let n1 {
+    data = 100
+};
+let n2 {
+    data = 200
+};
+n1.next = n2;
+console.log(n1)
 */
 
-// class ListNode {
-//     constructor(val) {
-//     //constructor
-//         this.val = val;
-//         //this here to indicate specifically this val but noth that val.
-//         this.next = null;
-//         //this.next means the value next val points to null
-//     }
-// }
-// (function main() {
-//     let one = new ListNode(1);
-//     let two = new ListNode(2);
-//     let three = new ListNode(3);
-//     one.next = two;
-//     two.next = three;
-//     let head = one;
-    
-//     console.log(head.val);
-//     console.log(head.next.val);
-//     console.log(head.next.next.val);
-// }());
-
-//Pointer
-// let ptr = head;
-// head = head.next;
-// head = null;
-
-
-//Iterating forward 
-let getSum = head => {
-    let ans = 0;
-    while (head) {
-        ans += head.val;
-        head = head.next;
-        console.log(head)
-    }
-
-    return ans;
-}
-
-head = 5
-console.log(getSum(head))
-
-//Recursively
-let getSum = head => {
-    if (!head) {
-        return 0;
-    }
-
-    return head.val + getSum(head.next);
-}
-
-console.log(getSum1(5))
-
-//Singly linked list
-/*
-In a singly linked list, each node only has a pointer to the next node. 
-This means you can only move forward in the list when iterating. 
-The pointer used to reference the next node is usually called next.
-*/
-
-class ListNode {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-    }
-}
-// Let prevNode be the node at position i - 1
-let addNode = (prevNode, nodeToAdd) => {
-    nodeToAdd.next = prevNode.next;
-    prevNode.next = nodeToAdd;
-}
-
-//Let's say you want to delete the element at position i
-class ListNode {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-    }
-}
-// Let prevNode be the node at position i - 1
-let deleteNode = prevNode => {
-    prevNode.next = prevNode.next.next;
-}
-
-//Doubly linked list
-//A doubly linked list is like a singly linked list, 
-//but each node also contains a pointer to the previous node.
-
-class ListNode {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-        this.prev = null;
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        //this.next = null;
+        this.next = next;
     }
 }
 
-let addNode = (node, nodeToAdd) => {
-    let prevNode = node.prev;
-    nodeToAdd.next = node;
-    nodeToAdd.prev = prevNode;
-    prevNode.next = nodeToAdd;
-    node.prev = nodeToAdd;
-}
+// const n1 = new Node(100);
+// console.log(n1);
 
-let deleteNode = node => {
-    let prevNode = node.prev;
-    let nextNode = node.next;
-    prevNode.next = nextNode;
-    nextNode.prev = prevNode;
-}
-
-
-//Linked lists with sentinel nodes
-
-class ListNode {
-    constructor(val) {
-        this.val = val;
-        this.next = null;
-        this.prev = null;
-    }
-}
-
-let addToEnd = nodeToAdd => {
-    nodeToAdd.next = tail;
-    nodeToAdd.prev = tail.prev;
-    tail.prev.next = nodeToAdd;
-    tail.prev = nodeToAdd;
-}
-
-let removeFromEnd = () => {
-    if (head.next == tail) {
-        return;
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
     }
 
-    let nodeToRemove = tail.prev;
-    nodeToRemove.prev.next = tail;
-    tail.prev = nodeToRemove.prev;
+// Insert fisrt node 
+insertFirst(data) {
+    this.head = new Node(data, this.head);
 }
+    /*
+    The insertFirst method takes a data parameter, 
+    which represents the value of the new node to be inserted.
 
-let addToStart = nodeToAdd => {
-    nodeToAdd.prev = head;
-    nodeToAdd.next = head.next;
-    head.next.prev = nodeToAdd;
-    head.next = nodeToAdd;
-}
+    this.head - if we want to insert the first one here (10) and 
+    if there's already something in the head then we want to push that to the next.
+    If the head in null (meaning the list is empty) then it will be the first node
+    in the list.
 
-let removeFromStart = () => {
-    if (head.next == tail) {
-        return;
-    }
+    +---+---+    +---+---+    +---+----+
+    | 10 | *---->| 20 | *---->| 30 |null|
+    +---+---+    +---+---+    +---+----+
+    */
 
-    let nodeToRemove = head.next;
-    nodeToRemove.next.prev = head;
-    head.next = nodeToRemove.next;
-}
+    //Print lust data
+};
 
-let head = new ListNode(-1);
-let tail = new ListNode(-1);
-head.next = tail;
-tail.prev = head;
-
-//Dummy pointers
-//Using the dummy pointer allows us to traverse the linked list without losing a reference to the head.
-let getSum = head => {
-    let ans = 0;
-    let dummy = head;
-    while (dummy) {
-        ans += dummy.val;
-        dummy = dummy.next;
-    }
-    // same as before, but we still have a pointer at the head
-    return ans;
-}
+ const ll = new LinkedList();
+ ll.insertFirst(100);
+ console.log(ll); 
