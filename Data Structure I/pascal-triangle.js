@@ -48,3 +48,25 @@ var generate = function(numRows) {
 
 numRows = 5
 console.log(generate(numRows))
+
+//Other solution
+var generate = function(numRows) {
+    // Initialize the triangle with the first row containing only 1
+    let triangle = [[1]];
+    // Loop to generate subsequent rows of the triangle
+    for (let i = 1; i < numRows; i++) {
+        // Create a new array for the current row and set its first element as 1
+        const newArr = [1];
+        // Loop to calculate the elements of the current row
+        for (let j = 1; j < i; j++) {
+            // Calculate each element by adding the corresponding elements from the previous row
+            newArr.push(triangle[i - 1][j] + triangle[i - 1][j - 1]);
+        }
+        // Push 1 to the end of the current row
+        newArr.push(1);   
+        // Push the current row to the triangle array
+        triangle.push(newArr);
+    }
+    // Return the generated Pascal's Triangle
+    return triangle;
+};
