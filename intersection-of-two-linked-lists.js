@@ -107,3 +107,42 @@ var getIntersectionNode = function(headA, headB) {
     
     return curB;
 };
+
+//Other Solution
+
+let getIntersectionNode = function(headA, headB) {
+    if(headA===null || headB===null) {
+        return null;
+    }
+    let r1=headA;
+    let r2=headB;
+    while(r1!==r2){
+        r1=r1.next;
+        r2=r2.next;
+        if(r1===r2){
+           return r1;
+        }
+        if (r1===null){
+          r1=headB;  
+        }
+        if(r2===null){
+            r2=headA;
+        }
+    }
+    return r1;
+};
+
+// Other approach
+
+var getIntersectionNode = function(headA, headB) {
+    if(!headA || !headB)return null
+    let a = headA, b = headB
+    while(a !== b){
+        a = a.next
+        b = b.next
+        if(!a && !b)return a
+        if(!a)a = headB
+        if(!b)b = headA
+    }
+    return a
+};
