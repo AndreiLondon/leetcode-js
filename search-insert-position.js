@@ -19,28 +19,6 @@ Related Topics
 Array, Binary Search
 */
 
-// var searchInsert = function(nums, target) {
-//     //let counter = 0;
-//     let left = 0;
-//     let right = nums.length -1;
-//     while (left <= right) {
-//         let mid = Math.floor((left + right) /2 );
-//         if (nums[mid] === target) {
-//             //counter++;
-//             // do something
-//             return 
-//         }
-//         if (nums[mid] > target) {
-//             right = mid - 1;
-//         } else {
-//             left = mid + 1;
-//         }
-//     }
-//       // target is not in arr, but left is at the insertion point
-//       return left;
-
-// };
-
 var searchInsert = function(nums, target) {
     let left = 0;
     let right = nums.length - 1;
@@ -67,3 +45,17 @@ var searchInsert = function(nums, target) {
 let newArr = [1, 2, 3, 4, 5, 6, 7]
 console.log(searchInsert(newArr, 5));
 
+//Other approach
+
+var searchInsert = function(nums, target) {
+    let lo = 0, hi = nums.length; // we might need to inseart at the end
+    while(lo < hi) { // breaks if lo == hi
+        let mid = lo + Math.floor((hi-lo)/2); // always gives the lower mid
+        if (target > nums[mid]) {
+            lo = mid + 1 // no way mid is a valid option
+        } else {
+            hi = mid // it might be possibe to inseart @ mid
+        }
+    }
+    return lo;
+};
