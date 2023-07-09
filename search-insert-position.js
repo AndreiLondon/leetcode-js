@@ -212,9 +212,4 @@ function Person() {
 
 const person = new Person();
 
-
-
-
-
-
 */
