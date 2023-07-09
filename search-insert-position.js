@@ -46,6 +46,7 @@ let newArr = [1, 2, 3, 4, 5, 6, 7]
 console.log(searchInsert(newArr, 5));
 
 //Other approach
+//https://leetcode.com/problems/search-insert-position/solutions/423166/binary-search-101/
 
 var searchInsert = function(nums, target) {
     let lo = 0, hi = nums.length; // we might need to inseart at the end
@@ -58,4 +59,63 @@ var searchInsert = function(nums, target) {
         }
     }
     return lo;
+};
+
+//Recursive
+/*
+Recursion is a process of calling itself. 
+A function that calls itself is called a recursive function.
+
+// program to count down numbers to 1
+function countDown(number) {
+
+    // display the number
+    console.log(number);
+
+    // decrease the number value
+    const newNumber = number - 1;
+
+    // base case
+    if (newNumber > 0) {
+        countDown(newNumber);
+    }
+}
+
+countDown(4);
+*/
+
+//Other approach
+/*
+Intuition
+Normally we'd solve it via loop but thats computationally consuming so we need to think differently
+We can use depth search or even first order search but why complicate it?
+
+Approach
+The below approach is simple it includes using Javascript built in methods and it's a good practice on the following:
+If you're new to Js or maybe studying react or vue or even anyother framework
+Knowing and learning those methods will help you
+1- includes
+2-indexOf
+3-rest operator and destructuring
+4- arrow function
+5-sorting via sort method
+
+MY ADVICE? READ THE SOLUTION CAREFULLY AND THEN HIT THE SEARCH BUTTON AND CHECK THOSE METHODS LISTED ABOVE,
+YOU'LL THANK ME LATER
+please upvote if I helped you in anyway :)
+
+Complexity
+Time complexity:
+O(log n)
+
+Space complexity:
+*/
+
+var searchInsert = function(nums, target) {
+  // includes,indexOf,rest operator,arrow function,sorting via sort method
+   if(nums.includes(target))  //includes method
+    return nums.indexOf(target); //returns index method//
+   return [...nums, target].sort((a,b) => a-b).indexOf(target); //return where it shold be inserted//
+
+  
 };
