@@ -95,10 +95,15 @@ The below approach is simple it includes using Javascript built in methods and i
 If you're new to Js or maybe studying react or vue or even anyother framework
 Knowing and learning those methods will help you
 1- includes
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
 2-indexOf
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
 3-rest operator and destructuring
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 4- arrow function
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 5-sorting via sort method
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
 MY ADVICE? READ THE SOLUTION CAREFULLY AND THEN HIT THE SEARCH BUTTON AND CHECK THOSE METHODS LISTED ABOVE,
 YOU'LL THANK ME LATER
